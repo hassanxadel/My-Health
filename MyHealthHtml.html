@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Health</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Health - Fitness Tracker</h1>
+    </header>
+    <div class="container">
+        <h2>Set Fitness Goals</h2>
+        <input type="text" id="fitnessGoal" placeholder="Enter your fitness goal">
+        <button class="btn" onclick="setFitnessGoal()">Set Goal</button>
+        
+        <h2>Record Workouts</h2>
+        <input type="text" id="workout" placeholder="Enter your workout">
+        <button class="btn" onclick="recordWorkout()">Record Workout</button>
+        
+        <h2>Progress Report</h2>
+        <div id="progressReport"></div>
+    </div>
+
+    <script>
+        // JavaScript code
+        let fitnessGoal = '';
+        let workouts = [];
+
+        function setFitnessGoal() {
+            fitnessGoal = document.getElementById('fitnessGoal').value;
+            document.getElementById('progressReport').innerHTML = `<p>Fitness Goal: ${fitnessGoal}</p>`;
+        }
+
+        function recordWorkout() {
+            let workout = document.getElementById('workout').value;
+            workouts.push(workout);
+            updateProgressReport();
+        }
+
+        function updateProgressReport() {
+            let report = '<p>Recorded Workouts:</p><ul>';
+            workouts.forEach(workout => {
+                report += `<li>${workout}</li>`;
+            });
+            report += '</ul>';
+            document.getElementById('progressReport').innerHTML = report;
+        }
+    </script>
+</body>
+</html>
