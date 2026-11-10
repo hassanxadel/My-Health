@@ -1,0 +1,14 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors / IDEs
+.vscode/
+.idea/
+
+# Node (screenshot tooling, if reused)
+node_modules/
+
+# Env / secrets
+.env
+.env.local
