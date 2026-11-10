@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Health — Fitness Tracker</title>
+    <meta name="description" content="Set a fitness goal, log your workouts, and see your progress.">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="brand">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span class="brand-name">My Health</span>
+        </div>
+        <nav class="tabs" role="tablist" aria-label="Sections">
+            <button class="tab" role="tab" id="tab-goal" aria-controls="panel-goal" aria-selected="true" data-target="panel-goal">Goal</button>
+            <button class="tab" role="tab" id="tab-workouts" aria-controls="panel-workouts" aria-selected="false" data-target="panel-workouts" tabindex="-1">Workouts</button>
+            <button class="tab" role="tab" id="tab-progress" aria-controls="panel-progress" aria-selected="false" data-target="panel-progress" tabindex="-1">Progress</button>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+            <span class="theme-toggle-dot" aria-hidden="true"></span>
+        </button>
+    </header>
+
+    <main id="main" class="page">
+        <section class="panel" id="panel-goal" role="tabpanel" aria-labelledby="tab-goal">
+            <h1 class="panel-title">What are you working toward?</h1>
+            <p class="panel-hint">One goal at a time. Set it, and everything below tracks toward it.</p>
+
+            <form class="entry-form" id="goalForm" novalidate>
+                <label class="field-label" for="fitnessGoal">Fitness goal</label>
+                <div class="field-row">
+                    <input type="text" id="fitnessGoal" name="fitnessGoal" placeholder="e.g. Run 5k without stopping" autocomplete="off">
+                    <button class="btn btn-primary" type="submit">Set goal</button>
+                </div>
+                <p class="field-error" id="goalError" role="alert" hidden>Enter a goal before setting it.</p>
+            </form>
+
+            <div class="current-goal" id="currentGoalCard">
+                <p class="current-goal-label">Current goal</p>
+                <p class="current-goal-text" id="currentGoalText">No goal set yet — write one above.</p>
+            </div>
+        </section>
+
+        <section class="panel" id="panel-workouts" role="tabpanel" aria-labelledby="tab-workouts" hidden>
+            <h1 class="panel-title">Log a workout</h1>
+            <p class="panel-hint">Keep it short: what did you do today?</p>
+
+            <form class="entry-form" id="workoutForm" novalidate>
+                <label class="field-label" for="workout">Workout</label>
+                <div class="field-row">
+                    <input type="text" id="workout" name="workout" placeholder="e.g. 30 min easy run" autocomplete="off">
+                    <button class="btn btn-primary" type="submit">Add workout</button>
+                </div>
+                <p class="field-error" id="workoutError" role="alert" hidden>Enter a workout before adding it.</p>
+                <p class="field-success" id="workoutSuccess" role="status" hidden>Workout added.</p>
+            </form>
+
+            <div class="ledger">
+                <p class="ledger-label">Logged workouts</p>
+                <ol class="ledger-list" id="workoutLedger">
+                    <li class="ledger-empty">No workouts logged yet — add your first one above.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="panel" id="panel-progress" role="tabpanel" aria-labelledby="tab-progress" hidden>
+            <h1 class="panel-title">Progress</h1>
+            <p class="panel-hint">A quick read on where things stand.</p>
+
+            <div class="progress-summary" id="progressReport">
+                <div class="summary-stat">
+                    <span class="summary-number" id="statGoal">—</span>
+                    <span class="summary-caption">Current goal</span>
+                </div>
+                <div class="summary-stat">
+                    <span class="summary-number" id="statCount">0</span>
+                    <span class="summary-caption">Workouts logged</span>
+                </div>
+            </div>
+
+            <div class="ledger">
+                <p class="ledger-label">All workouts</p>
+                <ol class="ledger-list" id="progressLedger">
+                    <li class="ledger-empty">Nothing logged yet. Visit the Workouts tab to add one.</li>
+                </ol>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

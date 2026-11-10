@@ -1,0 +1,17 @@
+{
+  "name": "my-health",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A browser-based fitness tracker: set a goal, log workouts, track progress.",
+  "scripts": {
+    "screenshots": "node scripts/screenshot.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hassanxadel/My-Health.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "playwright": "^1.49.0"
+  }
+}
